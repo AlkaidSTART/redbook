@@ -19,7 +19,7 @@
                 </div>
             </div>
         </div>
-        <nav class="nave">
+        <!-- <nav class="nave">
             <ul>
                 <li>推荐</li>
                 <li>穿搭</li>
@@ -27,7 +27,7 @@
                 <li>彩妆</li>
                 <li>影视</li>
             </ul>
-        </nav>
+        </nav> -->
     </header>
 </template>
 <style scoped>
@@ -51,7 +51,7 @@ header {
 
 header {
     width: 100%;
-    height: calc(72 * #{$dp});
+    height: calc(24 * #{$dp});
 
     .head {
         width: 100%;
@@ -60,7 +60,7 @@ header {
 
         .ed {
             width: 100%;
-            height: calc(36 * #{$dp});
+            height: calc(16 * #{$dp});
             display: flex;
 
             .logo {
@@ -134,27 +134,27 @@ header {
         }
     }
 
-    .nave {
-        width: 100%;
-        height: calc(10 * #{$dp});
-        // margin-bottom: calc(4 * #{$dp});
-        background-color: #363636;
+    // .nave {
+    //     width: 100%;
+    //     height: calc(10 * #{$dp});
+    //     // margin-bottom: calc(4 * #{$dp});
+    //     background-color: #363636;
 
-        ul {
-            display: flex;
-        }
+    //     ul {
+    //         display: flex;
+    //     }
 
-        li {
-            flex: 1;
-            text-align: center;
-            color: #ffa2b6;
-            line-height: calc(10 * #{$dp});
+    //     li {
+    //         flex: 1;
+    //         text-align: center;
+    //         color: #ffa2b6;
+    //         line-height: calc(10 * #{$dp});
 
-            &:hover {
-                background-color: #141414;
-                border-radius: calc(2 * #{$dp});
-            }
-        }
-    }
+    //         &:hover {
+    //             background-color: #141414;
+    //             border-radius: calc(2 * #{$dp});
+    //         }
+    //     }
+    // }
 }
 </style>

@@ -5,15 +5,12 @@
 <header>
     <headNave></headNave>
 </header>
-<!-- <main>
-    <template>
+<Body>
+    <template #body1>
         <Body1></Body1>
-        <Body2></Body2>
-        <Body3></Body3>
-        <Body4></Body4>
     </template>
-</main>
-<footer>
+</Body>
+<!-- <footer>
     <Sfoot></Sfoot>
 </footer> -->
 
@@ -22,6 +19,8 @@
 </template>
 <script>
 import headNave from './components/headNave.vue'
+import Body from './components/Body.vue'
+import Body1 from './components/Body1.vue'
 // import Body4 from './components/Body4.vue'
 // import Body1 from './components/Body1.vue'
 // import Sfoot from './components/Sfoot.vue'
@@ -31,6 +30,8 @@ export default {
   name: 'App',
   components: {
     headNave,
+    Body,
+    Body1,
     // Body4,
     // Body1,
     // Body3,
