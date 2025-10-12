@@ -12,6 +12,7 @@ $dp: 0.1rem;
 .body {
     width: 100%;
     height: calc(100 * #{$dp});
+    overflow-y: scroll;
     background-color: #363636;
 }
 </style>
