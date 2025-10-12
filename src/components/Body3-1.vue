@@ -1,7 +1,14 @@
 <script setup>
 import { ref } from 'vue'
-// const like=ref(false)
-// like.style.backgroundColor=like?'#007aff':'#ababab'
+const like = ref(false)
+const likeBtn = ref(null)
+const handleLike = () => {
+    like.value = !like.value
+    if (likeBtn.value) {
+        likeBtn.value.style.backgroundColor = like.value ? 'red' : 'transparent'
+    }
+}
+
 
 
 </script>
@@ -20,10 +27,10 @@ import { ref } from 'vue'
             </div>
             <div class="repbox">
                 <button class="btn">回复</button>
-                <div class="like" ref="like" @click="like=!like"><img src="../assets/喜欢.png" alt=""></div>
+                <div class="like" ref="likeBtn" @click="handleLike"><img src="../assets/喜欢.png" alt=""></div>
             </div>
         </div>
-        <div class="plogo">无</div>
+        <div class="plogo"><img src="../assets/blank.png" alt=""></div>
     </div>
 </template>
 <style lang="scss" scoped>
@@ -111,11 +118,12 @@ $dp: 0.1rem;
             padding: calc(2* $dp);
             border-radius: calc(5* $dp);
         }
-        .like{
+
+        .like {
             width: calc(10* $dp);
             height: calc(10* $dp);
             margin-left: calc(3* $dp);
-            img{
+            img {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
@@ -124,11 +132,13 @@ $dp: 0.1rem;
     }
 
     .plogo {
-        width: calc(10* $dp);
-        height: calc(10* $dp);
+        width: calc(14* $dp);
+        height: calc(14* $dp);
         border-radius: 50%;
         overflow: hidden;
-
+        margin-top: calc(4* $dp);
+        margin-left: calc(3* $dp);
+        margin-right: calc(4* $dp);
         img {
             width: 100%;
             height: 100%;
