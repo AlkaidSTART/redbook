@@ -1,3 +1,5 @@
 <script setup></script>
-<template></template>
+<template>
+    <a href="#"></a>
+</template>
 <style lang="scss" scoped></style>

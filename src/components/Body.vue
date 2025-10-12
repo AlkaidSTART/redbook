@@ -1,12 +1,27 @@
 <script setup>
+import { defineProps } from 'vue'
 
+const props = defineProps({
+  currentIndex: {
+    type: Number,
+    default: 0
+  }
+})
 </script>
 <template>
     <div class="body">
-        <!-- <slot name="body1"></slot> -->
-        <slot name="body3"></slot>
-        <!-- <slot name="body3"></slot>
-        <slot name="body4"></slot> -->
+        <template v-if="currentIndex === 0">
+            <slot name="body1"></slot>
+        </template>
+        <template v-else-if="currentIndex === 1">
+            <slot name="body2"></slot>
+        </template>
+        <template v-else-if="currentIndex === 2">
+            <slot name="body3"></slot>
+        </template>
+        <template v-else-if="currentIndex === 3">
+            <slot name="body4"></slot>
+        </template>
     </div>
 </template>
 <style lang="scss" scoped>

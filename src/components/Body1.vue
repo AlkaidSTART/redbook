@@ -1,14 +1,18 @@
 <script setup>
-
+import { ref } from 'vue'
+const activeIndex = ref(0)
+const handleClick = (index) => {
+    activeIndex.value = index
+}
 </script>
 <template>
   <nav class="nave">
     <ul>
-      <li>推荐</li>
-      <li>穿搭</li>
-      <li>美食</li>
-      <li>彩妆</li>
-      <li>影视</li>
+      <li :class="{'active': activeIndex === 0}" @click="handleClick(0)">推荐</li>
+      <li :class="{'active': activeIndex === 1}" @click="handleClick(1)">穿搭</li>
+      <li :class="{'active': activeIndex === 2}" @click="handleClick(2)">美食</li>
+      <li :class="{'active': activeIndex === 3}" @click="handleClick(3)">彩妆</li>
+      <li :class="{'active': activeIndex === 4}" @click="handleClick(4)">影视</li>
     </ul>
   </nav>
   <div class="main">
@@ -89,7 +93,7 @@ a {
     color: #ffa2b6;
     line-height: calc(10 * #{$dp});
 
-    &:hover {
+    &.active {
       background-color: #141414;
       border-radius: calc(2 * #{$dp});
     }

@@ -25,7 +25,7 @@ $dp: 0.1rem;
     height: calc(100* $dp);
     border-top: 1px solid #f1f1f1;
     margin-top: calc(2* $dp);
-overflow: scroll;
+    overflow: scroll;
     .items {
         width: 100%;
         height: calc(25* $dp);
