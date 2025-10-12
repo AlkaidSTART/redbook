@@ -10,9 +10,9 @@
         <Body1></Body1>
     </template>
 </Body>
-<!-- <footer>
+<footer>
     <Sfoot></Sfoot>
-</footer> -->
+</footer>
 
 
 
@@ -23,7 +23,7 @@ import Body from './components/Body.vue'
 import Body1 from './components/Body1.vue'
 // import Body4 from './components/Body4.vue'
 // import Body1 from './components/Body1.vue'
-// import Sfoot from './components/Sfoot.vue'
+import Sfoot from './components/Sfoot.vue'
 // import Body3 from './components/Body3.vue'
 // import Body2 from './components/Body2.vue'
 export default {
@@ -36,7 +36,7 @@ export default {
     // Body1,
     // Body3,
     // Body2,
-    // Sfoot
+    Sfoot
   }
 }
 </script>

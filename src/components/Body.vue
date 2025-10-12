@@ -11,8 +11,9 @@ $dp: 0.1rem;
 
 .body {
     width: 100%;
-    height: calc(100 * #{$dp});
+    height: calc(105 * #{$dp});
     overflow-y: scroll;
     background-color: #363636;
+    overflow-x: hidden;
 }
 </style>
