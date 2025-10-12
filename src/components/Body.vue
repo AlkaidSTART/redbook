@@ -3,7 +3,10 @@
 </script>
 <template>
     <div class="body">
-        <slot name="body1"></slot>
+        <!-- <slot name="body1"></slot> -->
+        <slot name="body3"></slot>
+        <!-- <slot name="body3"></slot>
+        <slot name="body4"></slot> -->
     </div>
 </template>
 <style lang="scss" scoped>
