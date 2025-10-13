@@ -30,10 +30,10 @@ const handleClick = (index) => {
             <span>用户昵称</span>
           </div>
           <div class="user-info">
-            <div class="like">
+            <span class="like">
               <img src="../assets/喜欢.png" alt=""></img>
-            </div>
-            <span>123</span>
+            </span>
+            <span class="follow">123</span>
           </div>
         </div>
       </section>
@@ -52,10 +52,10 @@ const handleClick = (index) => {
             <span>用户昵称</span>
           </div>
           <div class="user-info">
-            <div class="like">
+            <span class="like">
               <img src="../assets/喜欢.png" alt=""></img>
-            </div>
-            <div class="follow">121</div>
+            </span>
+            <span class="follow">121</span>
           </div>
         </div>
       </section>
@@ -152,6 +152,7 @@ a {
         .user {
           width: calc(8 * #{$dp});
           height: calc(8 * #{$dp});
+          line-height: calc(8 * #{$dp});
           border-radius: 50%;
           overflow: hidden;
           margin-top: calc(3 * #{$dp});
@@ -168,6 +169,8 @@ a {
         .user-name {
           width: calc(20 * #{$dp});
           height: calc(8 * #{$dp});
+          line-height: calc(8 * #{$dp});
+          margin-right: calc(2 * #{$dp});
           font-size: 8px;
           color: #fff;
           text-align: center;
@@ -184,8 +187,9 @@ a {
         }
 
         .user-info {
-          width: calc(20 * #{$dp});
+          width: calc(13 * #{$dp});
           height: calc(10 * #{$dp});
+          line-height: calc(10 * #{$dp});
           font-size: 16px;
           color: #fff;
           display: flex;
@@ -195,6 +199,7 @@ a {
           .like {
             width: calc(10 * #{$dp});
             height: calc(10 * #{$dp});
+            margin-right: calc(4 * #{$dp});
 
             img {
               width: 100%;
