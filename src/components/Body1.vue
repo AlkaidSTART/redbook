@@ -105,6 +105,7 @@ a {
   display: flex;
   margin-top: calc(4 * #{$dp});
   overflow-y: scroll;
+  overflow-x: hidden;
   padding-left: calc(3 * #{$dp});
   padding-right: calc(3 * #{$dp});
 
