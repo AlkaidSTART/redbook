@@ -12,10 +12,10 @@ const setindex = (index) => {
 <template>
     <footer class="foot">
         <ul>
-            <li :class="{ active: currentIndex === 0 }" @click="setindex(0)"><img src="../assets/主页.png" alt=""></li>
-            <li :class="{ active: currentIndex === 1 }" @click="setindex(1)"><img src="../assets/开始拍摄.png" alt=""></li>
-            <li :class="{ active: currentIndex === 2 }" @click="setindex(2)"><img src="../assets/通知中心_o.png" alt=""></li>
-            <li :class="{ active: currentIndex === 3 }" @click="setindex(3)"><img src="../assets/个人中心.png" alt=""></li>
+            <li @click="setindex(0)"><img src="../assets/主页.png" alt=""></li>
+            <li @click="setindex(1)"><img src="../assets/开始拍摄.png" alt=""></li>
+            <li @click="setindex(2)"><img src="../assets/通知中心_o.png" alt=""></li>
+            <li @click="setindex(3)"><img src="../assets/个人中心.png" alt=""></li>
         </ul>
     </footer>
 </template>
@@ -49,12 +49,6 @@ $dp: 0.1rem;
 
             &:active {
                 filter: brightness(0.5);
-            }
-            
-            &.active {
-                filter: brightness(1.5);
-                border: 2px solid #2a313d;
-                border-radius: 50%;
             }
         }
     }

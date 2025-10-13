@@ -1,4 +1,13 @@
 <script setup>
+import { ref } from 'vue'
+const searchInput = ref(null)
+const searchStatus = ref(false)
+const moreStatus = ref(false)
+function Search() {
+    if (searchStatus.value) {
+        searchInput.value.focus()
+    }
+}
 
 </script>
 <template>
@@ -10,11 +19,24 @@
                 </div>
                 <div class="im-box">
                     <div class="search">
-                        <div class="sp"> <input type="text" placeholder=""></div>
-                        <div class="si"><img src="../assets/搜索.png" alt=""></div>
+                        <div class="sp" ref="searchInput" v-if="searchStatus"> <input type="text" placeholder=""></div>
+                        <div class="si" @click="searchStatus = !searchStatus"><img src="../assets/搜索.png" alt=""></div>
                     </div>
                     <div class="more">
-                        <button><img src="../assets/更多.png" alt=""></button>
+                        <button @click="moreStatus = !moreStatus"><img src="../assets/更多.png" alt=""></button>
+                    </div>
+                    <div class="line-container" v-if="moreStatus">
+                        <ul>
+                            <li>退出登录</li>
+                            <li>键盘快捷键</li>
+                            <li>添加小红书到桌面</li>
+                            <li>打开小窗模式</li>
+                            <li>创作中心</li>
+                            <li>业务合作</li>
+                            <li>帮助与客服</li>
+                            <li>反馈</li>
+                            <li>关于小红书</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -74,6 +96,7 @@ header {
 
             .im-box {
                 display: flex;
+
                 .search {
                     width: calc(50* #{$dp});
                     height: calc(8* #{$dp});
@@ -87,6 +110,7 @@ header {
                         height: calc(8* #{$dp});
                         background-color: #eaedf0;
                         border-radius: calc(4 * #{$dp});
+                        transition: width 0.5s ease-in-out;
 
                         input {
                             width: 100%;
@@ -110,6 +134,9 @@ header {
                         border-radius: 5px;
                         margin-left: calc(2 * #{$dp});
                         background-color: transparent;
+                        position: absolute;
+                        top: calc(5 * #{$dp});
+                        right: calc(20 * #{$dp});
                     }
                 }
 
@@ -128,6 +155,40 @@ header {
                         border: none;
                         outline: none;
                         background-color: transparent;
+                    }
+                }
+
+                .line-container {
+                    width: calc(40 * #{$dp});
+                    height: calc(120 * #{$dp});
+
+                    background-color: #ffffff;
+                    border-radius: 12px;
+                    position: absolute;
+                    top: calc(17 * #{$dp});
+                    right: calc(3 * #{$dp});
+                    background-color:#141414 ;
+                    ul {
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        li {
+                            text-align: start;
+                            padding-left: calc(2 * #{$dp});
+                            padding-top: calc(1 * #{$dp});
+                            line-height: auto;
+                            color: #ffffff;
+                            font-size: 14px;
+                            border-radius: calc(2 * #{$dp});
+                            margin-bottom: calc(2 * #{$dp});
+                            z-index: 1000;
+                            flex: 1;
+                            &:hover {
+                                background-color: #abcdef;
+                                border-radius: calc(2 * #{$dp});
+                            }
+                        }
                     }
                 }
             }
