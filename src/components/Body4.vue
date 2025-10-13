@@ -1,15 +1,19 @@
 <script setup>
 import { onMounted, ref } from 'vue'
+import Body41 from './Body4-1.vue'
+import Body42 from './Body4-2.vue'
 const activeIndex = ref(0)
 function setIndex(index) {
     activeIndex.value = index
     // 直接计算偏移量
-    const offset = index * 1.7 +3.3// 17 * 0.1 = 1.7
+    const offset = index * 1.7 + 3.3// 17 * 0.1 = 1.7
     document.querySelector('.slider').style.transform = `translateX(${offset}rem)`
 }
 onMounted(() => {
     setIndex(0)
 })
+
+
 </script>
 <template>
     <header class="T1">
@@ -45,13 +49,16 @@ onMounted(() => {
     </header>
     <div class="body">
         <div class="bnav">
-            <div class="box" @click="setIndex(0) ">笔记</div>
+            <div class="box" @click="setIndex(0)">笔记</div>
             <div class="box" @click="setIndex(1)">收藏</div>
             <div class="slider"></div>
         </div>
 
     </div>
-    <div class="btext"></div>
+    <div class="btext">
+            <Body41 v-if="activeIndex === 0" ></Body41>
+            <Body42 v-else-if="activeIndex === 1" ></Body42>
+    </div>
 </template>
 <style lang="scss" scoped>
 $dp: 0.1rem;
@@ -95,19 +102,22 @@ $dp: 0.1rem;
         }
 
         .slider {
-    position: absolute;
-    bottom: calc(2 * #{$dp});
-    left: 0;  /* 改为0 */
-    width: calc(17 * #{$dp});
-    height: calc(9 * #{$dp});
-    background-color: #f9f2f0;
-    border-radius: calc(2 * #{$dp});
-    z-index: 100;
-    border: 1px solid #141414;
-    opacity: 0.5;
-    transform: translateX(0);  /* 初始位置为0 */
-    transition: transform 0.3s ease-in-out;  /* 只保留一个transition */
-}
+            position: absolute;
+            bottom: calc(2 * #{$dp});
+            left: 0;
+            /* 改为0 */
+            width: calc(17 * #{$dp});
+            height: calc(9 * #{$dp});
+            background-color: #f9f2f0;
+            border-radius: calc(2 * #{$dp});
+            z-index: 100;
+            border: 1px solid #141414;
+            opacity: 0.5;
+            transform: translateX(0);
+            /* 初始位置为0 */
+            transition: transform 0.3s ease-in-out;
+            /* 只保留一个transition */
+        }
     }
 
 
@@ -118,6 +128,7 @@ $dp: 0.1rem;
     width: 100%;
     line-height: calc(10* #{$dp});
     overflow-y: scroll;
+     min-height: 200px
 }
 
 
