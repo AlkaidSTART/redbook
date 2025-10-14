@@ -1,14 +1,17 @@
 <script setup>
-import { defineProps } from 'vue'
-
+import Refersh from './refersh.vue'
 const props = defineProps({
-  currentIndex: {
-    type: Number,
-    default: 0
-  }
+    currentIndex: {
+        type: Number,
+        default: 0
+    }
 })
 </script>
 <template>
+    <div class="r"><template>
+            <Refersh></Refersh>
+        </template></div>
+
     <div class="body">
         <template v-if="currentIndex === 0">
             <slot name="body1"></slot>

@@ -1,21 +1,45 @@
 <script setup>
 import { ref } from 'vue'
+import { watch } from 'vue'
+import Refersh from './refersh.vue'
+
 const activeIndex = ref(0)
+const delayIndex = ref(0)
+const showRefersh = ref(false)
+const rotate = ref(false)
 const handleClick = (index) => {
-    activeIndex.value = index
+  activeIndex.value = index
+
+  // 每次点击都显示刷新动画
+  showRefersh.value = true
+  rotate.value = true
+  setTimeout(() => {
+    showRefersh.value = false
+    rotate.value = false
+  }, 1800)
 }
+rotate.value = true
+watch(activeIndex, (newVal) => {
+  setTimeout(() => {
+    delayIndex.value = newVal
+  }, 300)
+})
 </script>
 <template>
+
   <nav class="nave">
     <ul>
-      <li :class="{'active': activeIndex === 0}" @click="handleClick(0)">推荐</li>
-      <li :class="{'active': activeIndex === 1}" @click="handleClick(1)">穿搭</li>
-      <li :class="{'active': activeIndex === 2}" @click="handleClick(2)">美食</li>
-      <li :class="{'active': activeIndex === 3}" @click="handleClick(3)">彩妆</li>
-      <li :class="{'active': activeIndex === 4}" @click="handleClick(4)">影视</li>
+      <li :class="{ 'active': activeIndex === 0, 'delayIndex': delayIndex === 0 }" @click="handleClick(0)">推荐</li>
+      <li :class="{ 'active': activeIndex === 1, 'delayIndex': delayIndex === 1 }" @click="handleClick(1)">穿搭</li>
+      <li :class="{ 'active': activeIndex === 2, 'delayIndex': delayIndex === 2 }" @click="handleClick(2)">美食</li>
+      <li :class="{ 'active': activeIndex === 3, 'delayIndex': delayIndex === 3 }" @click="handleClick(3)">彩妆</li>
+      <li :class="{ 'active': activeIndex === 4, 'delayIndex': delayIndex === 4 }" @click="handleClick(4)">影视</li>
     </ul>
   </nav>
-  <div class="main">
+ <div class="r" :class="{ 'hide': !showRefersh }">
+    <Refersh :rotate="rotate"></Refersh>
+  </div>
+  <div class="main" :class="{ 'moved-up': !showRefersh }">
     <a class="container" href="#">
       <section class="a-s">
         <div class="banner">
@@ -100,6 +124,18 @@ a {
   }
 }
 
+.r {
+  transition: all 0.5s ease-in-out;
+  overflow: hidden;
+  max-height: 100px;
+
+  &.hide {
+    max-height: 0;
+    margin-top: 0;
+    opacity: 0;
+  }
+}
+
 .main {
   width: 100%;
   display: flex;
@@ -108,6 +144,11 @@ a {
   overflow-x: hidden;
   padding-left: calc(3 * #{$dp});
   padding-right: calc(3 * #{$dp});
+  transition: margin-top 1.2s ease-in-out;
+
+  &.moved-up {
+    margin-top: calc(1 * #{$dp});
+  }
 
   // flex-wrap: wrap;
   .container {

@@ -41,15 +41,6 @@ function Search() {
                 </div>
             </div>
         </div>
-        <!-- <nav class="nave">
-            <ul>
-                <li>推荐</li>
-                <li>穿搭</li>
-                <li>美食</li>
-                <li>彩妆</li>
-                <li>影视</li>
-            </ul>
-        </nav> -->
     </header>
 </template>
 <style scoped>
@@ -157,7 +148,6 @@ header {
                         background-color: transparent;
                     }
                 }
-
                 .line-container {
                     width: calc(40 * #{$dp});
                     height: calc(120 * #{$dp});
@@ -168,11 +158,13 @@ header {
                     top: calc(17 * #{$dp});
                     right: calc(3 * #{$dp});
                     background-color:#141414 ;
+                    z-index: 10000;
                     ul {
                         width: 100%;
                         height: 100%;
                         display: flex;
                         flex-direction: column;
+                        z-index: 1000;
                         li {
                             text-align: start;
                             padding-left: calc(2 * #{$dp});
@@ -182,7 +174,7 @@ header {
                             font-size: 14px;
                             border-radius: calc(2 * #{$dp});
                             margin-bottom: calc(2 * #{$dp});
-                            z-index: 1000;
+                            z-index: 10000;
                             flex: 1;
                             &:hover {
                                 background-color: #abcdef;
