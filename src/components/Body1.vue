@@ -7,6 +7,7 @@ const activeIndex = ref(0)
 const delayIndex = ref(0)
 const showRefersh = ref(false)
 const rotate = ref(false)
+const userBoxs = ref([{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }, { id: 6 }, { id: 7 }, { id: 8 }])
 const handleClick = (index) => {
   activeIndex.value = index
 
@@ -36,35 +37,11 @@ watch(activeIndex, (newVal) => {
       <li :class="{ 'active': activeIndex === 4, 'delayIndex': delayIndex === 4 }" @click="handleClick(4)">影视</li>
     </ul>
   </nav>
- <div class="r" :class="{ 'hide': !showRefersh }">
+  <div class="r" :class="{ 'hide': !showRefersh }">
     <Refersh :rotate="rotate"></Refersh>
   </div>
   <div class="main" :class="{ 'moved-up': !showRefersh }">
-    <div class="1box">
-      <body1box></body1box>
-    </div>
-    <!-- <a class="container" href="#">
-      <section class="a-s">
-        <div class="banner">
-          <img src="../assets/blank.png" alt="">
-        </div>
-        <span>hello</span>
-        <div class="user-box">
-          <div class="user">
-            <img src="../assets/1.jpg" alt="">
-          </div>
-          <div class="user-name">
-            <span>用户昵称</span>
-          </div>
-          <div class="user-info">
-            <span class="like">
-              <img src="../assets/喜欢.png" alt=""></img>
-            </span>
-            <span class="follow">121</span>
-          </div>
-        </div>
-      </section>
-    </a> -->
+    <body1box v-for="item in userBoxs" :key="item.id"></body1box>
   </div>
 </template>
 <style lang="scss" scoped>
@@ -119,14 +96,14 @@ a {
 
 .main {
   width: 100%;
-  display: flex;
+  display: grid;
+  // grid-template-columns: 1fr 1fr;  // 两列布=>两列
+  gap: calc(2 * #{$dp});  // 网格间隙
   margin-top: calc(4 * #{$dp});
   overflow-y: scroll;
-  overflow-x: hidden;
   padding-left: calc(3 * #{$dp});
   padding-right: calc(3 * #{$dp});
   transition: margin-top 1.2s ease-in-out;
-
   &.moved-up {
     margin-top: calc(1 * #{$dp});
   }
@@ -134,12 +111,11 @@ a {
   // flex-wrap: wrap;
   .container {
     width: calc(90* #{$dp});
-    height: calc(140 * #{$dp});
     background-color: #363636;
     display: flex;
     padding-top: calc(2 * #{$dp});
     padding-right: calc(2 * #{$dp});
-
+border: 1px solid #fff;
     .a-s {
       width: calc(46* #{$dp});
       height: calc(120 * #{$dp});
